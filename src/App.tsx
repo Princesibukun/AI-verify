@@ -29,7 +29,7 @@ const router = createBrowserRouter(
 );
 
 const App = () => (
-  <div className="bg-slate-100">
+  <div className="bg-gray-100">
     <RouterProvider router={router} />
   </div>
 );

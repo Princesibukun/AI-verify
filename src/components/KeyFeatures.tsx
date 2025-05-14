@@ -11,12 +11,12 @@ const KeyFeatures = () => {
         <div className="border border-gray-300 rounded-full p-1 px-2 font-semibold text-sm w-fit">
           Key Features
         </div>
-        <h1 className="font-extrabold text-2xl mt-2 text-center">
+        <h1 className="font-semibold text-4xl mt-2 text-center">
           What You Get Using AI Detector Tool
         </h1>
         <div className="flex md:flex-row flex-col items-center justify-between mt-10 w-full gap-5">
           <div className="bg-white h-[190px] w-[400px] max-w-[100%] rounded-lg border border-purple-200 p-4 flex flex-col items-center">
-            <FaBoltLightning className="text-3xl text-purple-500" />
+            <FaBoltLightning className="text-3xl text-orange-700" />
             <h6 className="text-sm font-semibold mt-4">
               Fast,accurate detection
             </h6>
@@ -25,7 +25,7 @@ const KeyFeatures = () => {
             </p>
           </div>
           <div className="bg-white h-[190px] w-[400px] max-w-[100%] rounded-lg border border-purple-200 p-4 flex flex-col items-center">
-            <FaCloudArrowUp className="text-3xl text-purple-500" />
+            <FaCloudArrowUp className="text-3xl  text-orange-700" />
             <h6 className="text-sm font-semibold mt-4 text-center">
               Upload support for .txt and .docx
             </h6>
@@ -34,7 +34,7 @@ const KeyFeatures = () => {
             </p>
           </div>
           <div className="bg-white h-[190px] w-[400px] max-w-[100%] rounded-lg border border-purple-200 p-4 flex flex-col items-center">
-            <BiSolidLock className="text-3xl text-purple-500" />
+            <BiSolidLock className="text-3xl  text-orange-700" />
             <h6 className="text-sm font-semibold mt-4">
               Private and secure by design
             </h6>
@@ -43,7 +43,7 @@ const KeyFeatures = () => {
             </p>
           </div>
           <div className="bg-white h-[190px] w-[400px] max-w-[100%] rounded-lg border border-purple-200 p-4 flex flex-col items-center">
-            <TbCoinFilled className="text-3xl text-purple-500" />
+            <TbCoinFilled className="text-3xl  text-orange-700" />
             <h6 className="text-sm font-semibold mt-4">
               Flexible, transparent pricing
             </h6>
