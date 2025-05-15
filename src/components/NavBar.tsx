@@ -7,44 +7,46 @@ import logo4 from "../assets/Images/logo4.png"
 const NavBar = () => {
   return (
     <>
-      <div className="md:px-10 px-4 py-4 flex justify-between shadow-2xl w-full bg-white z-10">
-        <a href="/" className="flex font-outfit text-nowrap">
+      <div className="md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-2xl w-full bg-white z-10">
+        <a href="/" className="flex font-outfit text-nowrap items-center">
           <img
-            className="md:text-2xl text-md w-full h-10 md:ml-2 ml-1"
+            className="h-8 md:h-10 w-auto"
             src={logo4}
             alt="Logo"
           />
         </a>
 
-        <div className="flex justify-between">
-          <div className="flex">
+        <div className="flex flex-wrap justify-end mt-2 md:mt-0 w-full md:w-auto">
+          <div className="flex flex-wrap gap-2 md:gap-4">
             <a
               href="/"
-              className="flex border border-gray-400 font-nunito bg-gray-100 hover:bg-gray-400 
-                            p-2 md:rounded-md rounded-full text-sm cursor-pointer text-center w-auto h-9 text-nowrap"
+              className="flex items-center gap-1 border border-gray-400 font-nunito bg-gray-100 hover:bg-gray-400 
+                        px-2 md:px-4 py-1 md:rounded-md rounded-full text-sm cursor-pointer text-center h-9 whitespace-nowrap"
             >
               <img
-                className="h-5 sm:w-5 w-auto md:mr-1 m-0"
+                className="h-5 w-5"
                 src={Logo}
                 alt="logo"
               />
-              <p className="hidden md:block"> View Pricing Plans</p>
+              <p className="hidden md:block">View Pricing Plans</p>
             </a>
+
             <a
               href="/"
-              className="flex items-center justify-center min-w-[95px] border border-gray-400 font-nunito bg-white text-pink-700 hover:bg-pink-700 
-            hover:text-white p-2 md:rounded-md rounded-full text-sm cursor-pointer ml-2 md:ml-10 h-9 text-nowrapp"
+              className="flex items-center justify-center min-w-[80px] border border-gray-400 font-nunito bg-white text-pink-700 hover:bg-pink-700 
+              hover:text-white px-2 md:px-4 py-1 md:rounded-md rounded-full text-sm cursor-pointer h-9"
             >
-              <img className="block md:hidden h-5 w-5" src={login} alt="" />
-              <p className="hidden md:block"> Log In</p>
+              <img className="block md:hidden h-5 w-5" src={login} alt="login" />
+              <p className="hidden md:block">Log In</p>
             </a>
+
             <a
               href="/"
-              className="flex items-center justify-center min-w-[100px] border border-pink-700 font-nunito bg-pink-700 text-white hover:bg-pink-700 
-            hover:text-white p-2 md:rounded-md rounded-full text-sm cursor-pointer ml-2 md:ml-10 h-9 text-nowrap"
+              className="flex items-center justify-center min-w-[90px] border border-pink-700 font-nunito bg-pink-700 text-white hover:bg-pink-600 
+              hover:text-white px-2 md:px-4 py-1 md:rounded-md rounded-full text-sm cursor-pointer h-9"
             >
-              <img className="h-5 w-5 md:hidden" src={adduser} alt="" />
-              <p className=" sm:hidden md:block">Sign Up</p>
+              <img className="block md:hidden h-5 w-5" src={adduser} alt="signup" />
+              <p className="sm:hidden md:block">Sign Up</p>
             </a>
           </div>
         </div>
