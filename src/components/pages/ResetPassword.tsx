@@ -13,7 +13,7 @@ const ResetPassword = () => {
             <h1 className="text-2xl font-bold">Reset password</h1>
             <a
               href="/login"
-              className="text-purple-600 text-sm font-semibold underline"
+              className="text-[#D63C42] text-sm font-semibold underline"
             >
               Back to login
             </a>
@@ -23,15 +23,16 @@ const ResetPassword = () => {
             <p className="text-sm text-gray-500">Email address</p>
             <input
               type="text"
-              className="border-2 border-purple-300 h-[44px] w-full rounded-md outline-0 mt-2 p-4"
+              aria-label="Email address"
+              className="border-2 border-gray-200 h-[44px] w-full rounded-md outline-0 mt-2 p-4"
             />
           </div>
 
           <a
             href="/verifylog"
             className="w-full flex flex-col
-               items-center text-center bg-purple-600
-               hover:bg-purple-500 py-[10px] px-[24px]
+               items-center text-center bg-[#D63C42]
+               hover:bg-[#D63C42] py-[10px] px-[24px]
                font-semibold text-white rounded-lg mt-3"
           >
             <p> Continue</p>
@@ -39,11 +40,11 @@ const ResetPassword = () => {
           <div className="w-full mt-8">
             <img src={Frame} alt="" className="w-full" />
           </div>
-          <div className="flex flex-row justify-between items-center w-full border cursor-pointer p-[10px] border-purple-300 rounded-lg mt-4">
+          <div className="flex flex-row justify-between items-center w-full border cursor-pointer p-[10px] border-gray-200 rounded-lg mt-4">
             <img src={Google} alt="" />
             <FaChevronRight />
           </div>
-          <div className="flex flex-row justify-between items-center w-full p-[10px] border cursor-pointer border-purple-300 rounded-lg mt-4">
+          <div className="flex flex-row justify-between items-center w-full p-[10px] border cursor-pointer border-gray-200 rounded-lg mt-4">
             <img src={Apple} alt="" />
             <FaChevronRight />
           </div>

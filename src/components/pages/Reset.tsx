@@ -42,12 +42,12 @@ const Reset = () => {
             <div className="flex flex-row justify-between items-center border-2 border-purple-300 h-[44px] w-full rounded-md text-center mt-2">
               <input
                 type={showPassword ? "text" : "password"}
+                 aria-label="Email address"
                 className=" h-[44px] w-full outline-0 p-4"
               />
               <span
                 onClick={togglePasswordVisibility}
-                style={{ cursor: "pointer" }}
-                className=""
+                className="cursor-default"
               >
                 {!showPassword ? (
                   <FaRegEyeSlash className="text-lg mr-2" />
@@ -65,12 +65,12 @@ const Reset = () => {
             <div className="flex flex-row justify-between items-center border-2 border-purple-300 h-[44px] w-full rounded-md text-center mt-2">
               <input
                 type={showPassword ? "text" : "password"}
+                 aria-label="Email address"
                 className=" h-[44px] w-full outline-0 p-4"
               />
               <span
                 onClick={togglePassVisibility}
-                style={{ cursor: "pointer" }}
-                className=""
+                className="cursor-default"
               >
                 {!showPass ? (
                   <FaRegEyeSlash className="text-lg mr-2" />

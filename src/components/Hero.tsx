@@ -26,6 +26,22 @@ const Hero = () => {
   console.log("Input:", inputText);
   console.log("Letter Count:", charCount);
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.type === "text/plain") {
+        const reader = new FileReader();
+        reader.onload = () => {
+          setInputText(reader.result as string);
+        };
+        reader.readAsText(file);
+      } else {
+        alert("Only .txt files are currently supported for preview.");
+      }
+    }
+  };
+
+
   return (
     <>
       <div className="flex flex-col items-center bg-gray-50 w-full py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-12 lg:px-20">
@@ -85,10 +101,22 @@ const Hero = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="flex gap-2 text-black items-center">
-                <img className="w-4 h-5" src={arrowup} alt="" />
+              <label
+                htmlFor="fileUpload"
+                title="Upload a .txt file"
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                <img className="w-4 h-5" src={arrowup} alt="Upload icon" />
                 <p className="hidden sm:block">Upload</p>
-              </div>
+              </label>
+              <input
+                id="fileUpload"
+                type="file"
+                accept=".txt"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+
               <button
                 onClick={handleScan}
                 className={`flex md:flex-row flex-col items-center justify-center font-nunito rounded-full md:rounded-md text-sm font-semibold text-center w-9 h-9 md:w-auto md:px-6 md:py-2 transition-all duration-300 ${loading
