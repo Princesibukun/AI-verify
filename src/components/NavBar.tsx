@@ -18,7 +18,7 @@ const NavBar = () => {
 
         <div className="flex justify-between">
           <div className="flex">
-            <a href="/" className="hidden md:block">
+            <a href="/view" className="hidden md:block">
               <div
                 className="flex border border-gray-400 font-nunito bg-gray-100 hover:bg-gray-400 
                             p-2 md:rounded-md rounded-full text-sm cursor-pointer text-center w-auto h-9 text-nowrap"
