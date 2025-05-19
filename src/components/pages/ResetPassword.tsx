@@ -7,13 +7,13 @@ import { FaChevronRight } from "react-icons/fa6";
 const ResetPassword = () => {
   return (
     <div>
-      <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] ">
-        <div className="bg-white w-[600px] h-fit max-w-[100%] rounded-lg p-8">
+      <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] font-quicksand">
+        <div className="bg-white md:w-[600px] h-fit w-[343px] max-w-[100%] rounded-lg p-8">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl font-bold">Reset password</h1>
             <a
               href="/login"
-              className="text-purple-600 text-sm font-semibold underline"
+              className="text-[#D63C42] text-sm font-semibold underline"
             >
               Back to login
             </a>
@@ -30,8 +30,8 @@ const ResetPassword = () => {
           <a
             href="/verifylog"
             className="w-full flex flex-col
-               items-center text-center bg-purple-600
-               hover:bg-purple-500 py-[10px] px-[24px]
+               items-center text-center bg-[#D63C42]
+               hover:bg-[#FF897F] py-[10px] px-[24px]
                font-semibold text-white rounded-lg mt-3"
           >
             <p> Continue</p>

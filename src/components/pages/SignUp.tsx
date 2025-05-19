@@ -16,13 +16,13 @@ const SignUp = () => {
   };
   return (
     <div>
-      <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] ">
-        <div className="bg-white w-[600px] h-[600px] max-w-[100%] rounded-lg p-8">
+      <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] font-quicksand">
+        <div className="bg-white md:w-[600px] md:h-[600px] w-[343px] h-[610px] max-w-[100%] rounded-lg p-8">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl font-bold">Sign up</h1>
             <a
               href="/login"
-              className="text-purple-600 text-sm font-semibold underline"
+              className="text-[#D63C42] text-sm font-semibold underline"
             >
               I have an account
             </a>
@@ -37,10 +37,7 @@ const SignUp = () => {
           <div className="mt-4">
             <div className="flex flex-row justify-between items-center">
               <p className="text-sm">Password</p>
-              <a
-                href="/reset"
-                className="text-purple-600 text-sm font-semibold"
-              >
+              <a href="/reset" className="text-[#D63C42] text-sm font-semibold">
                 Forgot Password?
               </a>
             </div>
@@ -86,8 +83,8 @@ const SignUp = () => {
           <a
             href="/verify"
             className="w-full flex flex-col
-               items-center text-center bg-purple-600
-               hover:bg-purple-500 py-[10px] px-[24px]
+               items-center text-center bg-[#D63C42]
+               hover:bg-[#FF897F] py-[10px] px-[24px]
                font-semibold text-white rounded-lg mt-3"
           >
             <p> Continue</p>
