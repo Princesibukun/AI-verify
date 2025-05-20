@@ -1,5 +1,5 @@
 // import React from 'react'
-import { MdDocumentScanner } from "react-icons/md";
+
 import brain2 from "../assets/Images/brain2.png";
 import "../index.css";
 import file from "../assets/Images/file.png";
@@ -82,12 +82,12 @@ const Hero = () => {
                 </h1>
               </div>
             </div>
-            <fieldset className="border border-gray-300 p-1 w-[250px] rounded-2xl">
+            <fieldset className="border border-gray-300 p-1 md:w-[250px] w-full rounded-2xl mt-4">
               <legend className="text-sm text-gray-600 px-2">
                 Analyzing Model
               </legend>
               <div className="flex items-center justify-between w-full mb-2">
-                <span className="ml-2">Selection</span>
+                <span className="ml-2 font-quicksand">Select</span>
                 <FaAngleDown className="text-gray-500 mr-2" />
               </div>
             </fieldset>
@@ -102,56 +102,68 @@ const Hero = () => {
             onChange={(e) => setInputText(e.target.value)}
           />
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-6 gap-4 w-full">
-            <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex md:flex-row flex-col text-center mt-6 gap-4 w-full">
+            <div className="flex flex-row gap-4">
               <p className="font-quicksand text-sm text-slate-400 font-semibold">
                 Word Count: {charCount}
               </p>
               <div className="hidden md:block  h-6 w-px bg-gray-300"></div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <img className="w-5 md:mr-1 mr-2" src={coins} alt="coins" />
-                <h2 className="hidden md:block text-sm font-semibold">
-                  2 credits left
-                </h2>
-                <h2 className="block md:hidden text-sm font-semibold">2</h2>
+            </div>
+            <div className="flex items-center">
+              <div className="flex gap-5 md:gap-2 items-center ">
+                <button className="flex ">
+                  <img
+                    className="w-5 h-5 md:mr-1 mr-2"
+                    src={coins}
+                    alt="coins"
+                  />
+                  <h2 className="hidden md:block text-sm font-semibold">
+                    2 credits left
+                  </h2>
+                  <h2 className="block md:hidden text-sm font-semibold">2</h2>
+                </button>
+
+                <div className="">
+                  <button className="border-2 border-gray-200 rounded-xl px-4 py-1 text-sm font-semibold font-quicksand cursor-default md:ml-4">
+                    <p className="hidden md:block"> Buy more credits</p>
+                    <p className="block md:hidden">Buy</p>
+                  </button>
+                </div>
               </div>
 
-              <button className="border-2 border-gray-200 rounded-xl px-4 py-1 text-sm font-semibold font-quicksand cursor-default md:ml-4 ml-5">
-                <p className="hidden md:block"> Buy more credits</p>
-                <p className="block md:hidden">Buy</p>
-              </button>
+              <div className="flex items-center justify-between gap-3 text-center md:ml-28 ml-20">
+                <div className="w-10 md:w-auto">
+                  <label
+                    htmlFor="fileUpload"
+                    title="Upload a .txt file"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <img className="w-4 h-5" src={arrowup} alt="Upload icon" />
+                    <p className="hidden md:block">Upload</p>
+                  </label>
+                  <input
+                    id="fileUpload"
+                    type="file"
+                    accept=".txt"
+                    onChange={handleFileChange}
+                    className="hidden"
+                  />
+                </div>
+                <button
+                  onClick={handleScan}
+                  className={`flex flex-row items-center font-quicksand bg-black text-white hover:text-slate-500 hover:bg-black rounded-lg text-sm font-semibold cursor-pointer text-center h-7 w-auto px-3 py-2 md:px-6 md:py-2 md:ml-4 ml-2transition-all duration-300 ${
+                    loading
+                      ? "bg-gray-500 text-black cursor-pointer"
+                      : "bg-black text-white hover:text-slate-500 hover:bg-black cursor-pointer"
+                  }`}
+                >
+                  <p className="hidden md:block">
+                    {loading ? "Scanning" : "Scan Content"}
+                  </p>
+                  <p className="block md:hidden">Scan</p>
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <label
-              htmlFor="fileUpload"
-              title="Upload a .txt file"
-              className="flex items-center gap-2 cursor-pointer"
-            >
-              <img className="w-4 h-5" src={arrowup} alt="Upload icon" />
-              <p className="hidden sm:block">Upload</p>
-            </label>
-            <input
-              id="fileUpload"
-              type="file"
-              accept=".txt"
-              onChange={handleFileChange}
-              className="hidden"
-            />
-            <button
-              onClick={handleScan}
-              className={`flex md:flex-row flex-col items-center justify-center font-nunito bg-black text-white hover:text-slate-500 hover:bg-black rounded-full md:rounded-md text-sm font-semibold cursor-pointer text-center w-9 h-9 md:w-auto md:px-6 md:py-2 md:ml-4 ml-2transition-all duration-300 ${
-                loading
-                  ? "bg-gray-500 text-black cursor-pointer"
-                  : "bg-black text-white hover:text-slate-500 hover:bg-black cursor-pointer"
-              }`}
-            >
-              <MdDocumentScanner className="md:mt-1 md:mr-2 block md:hidden" />
-              <p className="hidden md:block">
-                {loading ? "Scanning" : "Scan Content"}
-              </p>
-              <p className="block md:hidden">Scan</p>
-            </button>
           </div>
         </div>
       </div>
