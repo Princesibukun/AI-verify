@@ -125,7 +125,7 @@ const Hero = () => {
             </div>
           ) : (
             <textarea
-              className="mt-2 h-52 w-full p-4 text-sm sm:text-base md:text-lg leading-relaxed outline-none resize-none overflow-auto whitespace-pre-wrap rounded-lg text-black bg-white"
+              className="mt-4 h-56 w-full p-4 text-sm sm:text-base md:text-lg leading-relaxed outline-none resize-none overflow-auto whitespace-pre-wrap rounded-lg text-black bg-white"
               placeholder="Enter text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
