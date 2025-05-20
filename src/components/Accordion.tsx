@@ -16,7 +16,7 @@ const Accordion: React.FC<AccordionGroupInterface> = (
   return (
     <div className="max-w-[100%] w-full">
       <div
-        className="accordion-header md:text-sm text-xs font-semibold flex flex-row justify-between items-center mb-10"
+        className="accordion-header md:text-sm text-xs font-semibold flex flex-row justify-between items-center mb-8"
         onClick={toggleAccordion}
       >
         {props.title} {!isOpen ? <FiPlus /> : <FiMinus />}

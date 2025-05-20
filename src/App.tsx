@@ -13,6 +13,7 @@ import VerifyEmail from "./components/pages/VerifyEmailSignup";
 import ResetPassword from "./components/pages/ResetPassword";
 import VerifyEmailLogin from "./components/pages/VerifyEmailLogin";
 import Reset from "./components/pages/Reset";
+import ViewPrice from "./components/pages/ViewPrice";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/verifylog" element={<VerifyEmailLogin />} />
       <Route path="/reset" element={<ResetPassword />} />
       <Route path="/resetpass" element={<Reset />} />
+      <Route path="/view" element={<ViewPrice />} />
     </Route>
   )
 );

@@ -7,8 +7,8 @@ import { FaChevronRight } from "react-icons/fa6";
 const VerifyEmailLogin = () => {
   return (
     <div>
-      <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] ">
-        <div className="bg-white w-[600px] h-fit max-w-[100%] rounded-lg p-8">
+      <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] font-quicksand">
+        <div className="bg-white md:w-[600px] w-[343px] h-fit max-w-[100%] rounded-lg p-8">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl font-bold">Verify email</h1>
             <a
