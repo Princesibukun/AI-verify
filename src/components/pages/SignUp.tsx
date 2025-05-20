@@ -19,7 +19,7 @@ const SignUp = () => {
       <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] font-quicksand">
         <div className="bg-white md:w-[600px] md:h-[600px] w-[343px] h-[610px] max-w-[100%] rounded-lg p-8">
           <div className="flex flex-row justify-between items-center">
-            <h1 className="text-2xl font-bold">Sign up</h1>
+            <h1 className="text-2xl font-semibold">Sign up</h1>
             <a
               href="/login"
               className="text-[#D63C42] text-sm font-semibold underline"
@@ -31,7 +31,8 @@ const SignUp = () => {
             <p className="text-sm">Email address</p>
             <input
               type="email"
-              className="border-2 border-purple-300 h-[44px] w-full rounded-md outline-0 mt-2 p-4"
+              aria-label="Email address"
+              className="border-2 border-gray-200 h-[44px] w-full rounded-md outline-0 mt-2 p-4"
             />
           </div>
           <div className="mt-4">
@@ -42,15 +43,15 @@ const SignUp = () => {
               </a>
             </div>
 
-            <div className="flex flex-row justify-between items-center border-2 border-purple-300 h-[44px] w-full rounded-md text-center mt-2">
+            <div className="flex flex-row justify-between items-center border-2 border-gray-200 h-[44px] w-full rounded-md text-center mt-2">
               <input
                 type={showPassword ? "text" : "password"}
+                aria-label="Email address"
                 className=" h-[44px] w-full outline-0 p-4"
               />
               <span
                 onClick={togglePasswordVisibility}
-                style={{ cursor: "pointer" }}
-                className=""
+                className="cursor-default"
               >
                 {!showPassword ? (
                   <FaRegEyeSlash className="text-lg mr-2" />

@@ -7,8 +7,8 @@ import logo4 from "../assets/Images/logo4.png";
 const NavBar = () => {
   return (
     <>
-      <div className="md:px-10 px-4 py-4 flex justify-between shadow-2xl w-full bg-white z-10">
-        <a href="/" className="flex font-outfit text-nowrap">
+      <div className="md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-2xl w-full bg-white z-10">
+        <a href="/" className="flex font-outfit text-nowrap items-center">
           <img
             className="md:text-2xl text-sm md:w-full w-[129.2941131591797px] md:h-10 h-[28px] md:ml-2 ml-1"
             src={logo4}
@@ -18,7 +18,7 @@ const NavBar = () => {
 
         <div className="flex justify-between">
           <div className="flex">
-            <a href="/" className="hidden md:block">
+            <a href="/view" className="hidden md:block">
               <div
                 className="flex border border-gray-400 font-nunito bg-gray-100 hover:bg-gray-400 
                             p-2 md:rounded-md rounded-full text-sm cursor-pointer text-center w-auto h-9 text-nowrap"
@@ -39,6 +39,7 @@ const NavBar = () => {
                 <p className=""> Log In</p>
               </div>
             </a>
+
             <a
               href="/signup"
               className="flex items-center justify-center min-w-[100px] border border-pink-700 font-quicksand font-semibold bg-[#D63C42] text-white hover:bg-[#FF897F]
