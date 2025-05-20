@@ -80,12 +80,24 @@ const Hero = () => {
             </fieldset>
           </div>
 
-          <textarea
-            className={`mt-4 h-56 w-full p-4 text-sm sm:text-base md:text-lg leading-relaxed outline-none focus:ring-0 focus:outline-none resize-none overflow-auto whitespace-pre-wrap transition-colors duration-300 rounded-lg ${loading ? "text-gray-300" : "text-black"}`}
-            placeholder="Enter text"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-          />
+          {loading ? (
+            <div className="mt-4 w-full p-2 rounded-lg bg-white overflow-auto animate-pulse h-56">
+              {Array.from({ length: Math.max(inputText.split("\n").length, 5) }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`bg-gray-100 rounded w-full h-5 mt-4 ${i === Math.max(inputText.split("\n").length, 5) - 1 ? '' : 'mb-1.5'}`}
+                />
+              ))}
+            </div>
+          ) : (
+            <textarea
+              className="mt-4 h-56 w-full p-4 text-sm sm:text-base md:text-lg leading-relaxed outline-none resize-none overflow-auto whitespace-pre-wrap rounded-lg text-black bg-white"
+              placeholder="Enter text"
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+            />
+          )}
+
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-6 gap-4 w-full">
             <div className="flex items-center gap-4 flex-wrap">
@@ -100,7 +112,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-5">
               <label
                 htmlFor="fileUpload"
                 title="Upload a .txt file"
@@ -120,7 +132,7 @@ const Hero = () => {
               <button
                 onClick={handleScan}
                 className={`flex md:flex-row flex-col items-center justify-center font-nunito rounded-full md:rounded-md text-sm font-semibold text-center w-9 h-9 md:w-auto md:px-6 md:py-2 transition-all duration-300 ${loading
-                  ? "bg-gray-500 text-black cursor-pointer"
+                  ? "bg-gray-200 text-gray-400 cursor-pointer"
                   : "bg-black text-white hover:text-slate-500 hover:bg-black cursor-pointer"
                   }`}
               >

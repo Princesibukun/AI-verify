@@ -7,7 +7,7 @@ import logo4 from "../assets/Images/logo4.png"
 const NavBar = () => {
   return (
     <>
-      <div className="md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-2xl w-full bg-white z-10">
+      <div className="md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-4xl w-full bg-white z-10">
         <a href="/" className="flex font-outfit text-nowrap items-center">
           <img
             className="h-8 md:h-10 w-auto"
