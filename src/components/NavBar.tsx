@@ -1,6 +1,4 @@
-// import React from "react";
 import Logo from "../assets/Images/Logo.png";
-//import login from "../assets/Images/login.png";
 import menu from "../assets/Images/Menu.png";
 import logo4 from "../assets/Images/logo4.png";
 
@@ -8,7 +6,10 @@ const NavBar = () => {
   return (
     <>
       <div className="md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-2xl w-full bg-white z-10">
-        <a href="/" className="flex font-outfit text-nowrap items-center">
+        <a
+          href="/dashboard"
+          className="flex font-outfit text-nowrap items-center"
+        >
           <img
             className="md:text-2xl text-sm md:w-full w-[129.2941131591797px] md:h-10 h-[28px] md:ml-2 ml-1"
             src={logo4}
