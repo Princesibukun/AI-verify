@@ -13,8 +13,13 @@ const Footer = () => {
       <div className="flex flex-col items-center mt-10 bg-white h-[280px]">
         <div className="relative flex flex-col md:flex-row justify-between bg-[#FFF8F7] p-8 w-[1200px] max-w-[100%] h-[180px] mt-10 rounded-lg">
           <div className="flex flex-row justify-between">
-            <div className="absolute top-6s left-2 flex font-outfit text-nowrap">
+            <div className="absolute top-6 left-9 font-outfit text-nowrap">
               <img className="h-5 w-auto bg-[#FFF8F7]" src={logo5} alt="logo" />
+            </div>
+            <div className="mt-8 text-sm font-quicksand">
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
+              <p>Habitant cursus odio fringilla id tellus faucibus</p>
+              <p>fermentum felis risus</p>
             </div>
             <div className="absolute md:right-9 right-2 flex justify-between">
               <a className="mr-4 md:text-lg text-xs" href="#">

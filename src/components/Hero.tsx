@@ -118,8 +118,8 @@ const Hero = () => {
           )}
 
           <div className="flex md:flex-row flex-col text-center mt-6 gap-4 w-full">
-            <div className="flex flex-row gap-4">
-              <p className="font-quicksand text-sm text-slate-400 font-semibold">
+            <div className="flex flex-row items-center gap-4">
+              <p className="font-quicksand text-sm text-black font-semibold">
                 Word Count: {charCount}
               </p>
               <div className="hidden md:block  h-6 w-px bg-gray-300"></div>
