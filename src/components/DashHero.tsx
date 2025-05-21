@@ -1,14 +1,12 @@
-// import React from 'react'
-
 import brain2 from "../assets/Images/brain2.png";
 import "../index.css";
 import file from "../assets/Images/file.png";
 import coins from "../assets/Images/coins.png";
 import { FaAngleDown } from "react-icons/fa";
-import arrowup from "../assets/Images/arrowup.png";
+import Upload from "../assets/Images/Upload.png";
 import { useState } from "react";
 
-const Hero = () => {
+const DashHero = () => {
   const [loading, setLoading] = useState(false);
   const [inputText, setInputText] = useState<string>("");
 
@@ -43,17 +41,14 @@ const Hero = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center font-quicksand bg-gray-50 md:h-[550px] h-[900px] w-full py-12 overflow-hidden">
-        <h1 className="font-bold text-3xl text-slate-900 text-center">
-          Spot AI writing. Catch copied content. Stay confident.
-        </h1>
-        {/* <h1 className="font-bold text-3xl text-nowrap text-slate-900">
-         
-        </h1> */}
-        <p className=" mt-4 text-md text-center font-quicksand">
-          An AI detection and plagarism checker built for accuracy, speed and
-          simplicity.
-        </p>
+      <div className="flex flex-col  items-center font-quicksand bg-gray-50 md:h-[550px] h-[900px] w-full py-12 overflow-hidden">
+        <div className="flex flex-col md:items-center items-start w-[343px] max-w-[100%]">
+          <h1 className="font-bold text-2xl text-slate-900 text-center">
+            Welcome back, Peter
+          </h1>
+
+          <p className=" mt-4 text-md text-center font-quicksand">New Scan</p>
+        </div>
 
         <div className="flex flex-col bg-white rounded-2xl md:w-[800px] w-[343px] max-w-[100%] md:h-[700px] h-[484px] mt-4 p-4 shadow-2xl overflow-hidden">
           <div className="flex flex-col md:flex-row md:justify-between">
@@ -118,8 +113,8 @@ const Hero = () => {
           )}
 
           <div className="flex md:flex-row flex-col text-center mt-6 gap-4 w-full">
-            <div className="flex flex-row items-center gap-4">
-              <p className="font-quicksand text-sm text-black font-semibold">
+            <div className="flex flex-row gap-4">
+              <p className="font-quicksand text-sm text-slate-400 font-semibold">
                 Word Count: {charCount}
               </p>
               <div className="hidden md:block  h-6 w-px bg-gray-300"></div>
@@ -146,28 +141,30 @@ const Hero = () => {
                 </div>
               </div>
 
-            <div className="flex items-center gap-2">
-              <label
-                htmlFor="fileUpload"
-                title="Upload a .txt file"
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                <img className="w-4 h-5" src={arrowup} alt="Upload icon" />
-                <p className="hidden sm:block">Upload</p>
-              </label>
-              <input
-                id="fileUpload"
-                type="file"
-                accept=".txt"
-                onChange={handleFileChange}
-                className="hidden"
-              />
-
-              <button
-                onClick={handleScan}
-                className={`flex md:flex-row flex-col items-center justify-center font-nunito rounded-full md:rounded-md text-sm font-semibold text-center w-9 h-9 md:w-auto md:px-6 md:py-2 transition-all duration-300 ${loading
-                  ? "bg-gray-500 text-black cursor-pointer"
-                  : "bg-black text-white hover:text-slate-500 hover:bg-black cursor-pointer"
+              <div className="flex items-center justify-between gap-3 text-center md:ml-28 ml-20">
+                <div className="w-10 md:w-auto">
+                  <label
+                    htmlFor="fileUpload"
+                    title="Upload a .txt file"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <img className="w-4 h-5" src={Upload} alt="Upload icon" />
+                    <p className="hidden md:block">Upload</p>
+                  </label>
+                  <input
+                    id="fileUpload"
+                    type="file"
+                    accept=".txt"
+                    onChange={handleFileChange}
+                    className="hidden"
+                  />
+                </div>
+                <button
+                  onClick={handleScan}
+                  className={`flex flex-row items-center font-quicksand bg-[#D63C42] text-white hover:text-slate-500 hover:bg-black rounded-lg text-sm font-semibold cursor-pointer text-center h-auto w-auto px-4 py-4 md:px-6 md:py-2 md:ml-4 ml-2transition-all duration-300 ${
+                    loading
+                      ? "bg-gray-500 text-black cursor-pointer"
+                      : "bg-[#D63C42] text-white hover:text-slate-500 hover:bg-black cursor-pointer"
                   }`}
                 >
                   <p className="hidden md:block">
@@ -184,4 +181,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default DashHero;

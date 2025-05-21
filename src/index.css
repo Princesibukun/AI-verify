@@ -3,6 +3,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-quicksand: "Quicksand", sans-serif;
     --font-outfit: "Outfit", sans-serif;
     --font-nunito: "Nunito", sans-serif;
     --breakpoint-sm: 18.75rem;
