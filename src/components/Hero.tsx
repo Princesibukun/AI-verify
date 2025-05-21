@@ -93,14 +93,29 @@ const Hero = () => {
             </fieldset>
           </div>
 
-          <textarea
-            className={`mt-4 h-56 w-full p-4 text-sm sm:text-base md:text-lg leading-relaxed outline-none focus:ring-0 focus:outline-none resize-none overflow-auto whitespace-pre-wrap transition-colors duration-300 rounded-lg ${
-              loading ? "text-gray-300" : "text-black"
-            }`}
-            placeholder="Enter text"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-          />
+          {loading ? (
+            <div className="mt-4 w-full p-2 rounded-lg bg-white overflow-auto animate-pulse h-56">
+              {Array.from({
+                length: Math.max(inputText.split("\n").length, 5),
+              }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`bg-gray-100 rounded w-full h-5 mt-4 ${
+                    i === Math.max(inputText.split("\n").length, 5) - 1
+                      ? ""
+                      : "mb-1.5"
+                  }`}
+                />
+              ))}
+            </div>
+          ) : (
+            <textarea
+              className="mt-2 h-52 w-full p-4 text-sm sm:text-base md:text-lg leading-relaxed outline-none resize-none overflow-auto whitespace-pre-wrap rounded-lg text-black bg-white"
+              placeholder="Enter text"
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+            />
+          )}
 
           <div className="flex md:flex-row flex-col text-center mt-6 gap-4 w-full">
             <div className="flex flex-row gap-4">
@@ -151,7 +166,7 @@ const Hero = () => {
                 </div>
                 <button
                   onClick={handleScan}
-                  className={`flex flex-row items-center font-quicksand bg-black text-white hover:text-slate-500 hover:bg-black rounded-lg text-sm font-semibold cursor-pointer text-center h-7 w-auto px-3 py-2 md:px-6 md:py-2 md:ml-4 ml-2transition-all duration-300 ${
+                  className={`flex flex-row items-center font-quicksand bg-black text-white hover:text-slate-500 hover:bg-black rounded-lg text-sm font-semibold cursor-pointer text-center h-auto w-auto px-3 py-2 md:px-6 md:py-2 md:ml-4 ml-2transition-all duration-300 ${
                     loading
                       ? "bg-gray-500 text-black cursor-pointer"
                       : "bg-black text-white hover:text-slate-500 hover:bg-black cursor-pointer"
