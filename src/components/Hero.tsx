@@ -49,10 +49,7 @@ const Hero = () => {
         <h1 className="font-bold text-3xl text-slate-900 text-center">
           Spot AI writing. Catch copied content. <br /> Stay confident.
         </h1>
-        {/* <h1 className="font-bold text-3xl text-nowrap text-slate-900">
-         
-        </h1> */}
-        <p className=" mt-4 text-sm text-center font-quicksand">
+        <p className=" mt-4 text-md text-center font-quicksand">
           An AI detection and plagarism checker built for accuracy, speed and
           simplicity.
         </p>
@@ -153,14 +150,14 @@ const Hero = () => {
                 </button>
 
                 <div className="">
-                  <button className="border-2 border-gray-200 rounded-xl px-4 py-1 text-sm font-semibold font-quicksand md:ml-4 cursor-pointer">
+                  <button className="border-2 border-gray-200 rounded-xl px-4 py-1 text-sm font-semibold font-quicksand cursor-default md:ml-4">
                     <p className="hidden md:block"> Buy more credits</p>
                     <p className="block md:hidden">Buy</p>
                   </button>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-3 text-center md:ml-24 ml-20">
+              <div className="flex items-center justify-between gap-3 text-center md:ml-28 ml-20">
                 <div className="w-10 md:w-auto">
                   <label
                     htmlFor="fileUpload"
@@ -182,8 +179,8 @@ const Hero = () => {
                   onClick={handleScan}
                   className={`flex flex-row items-center font-quicksand bg-black text-white hover:text-slate-500 hover:bg-black rounded-lg text-sm font-semibold cursor-pointer text-center h-auto w-auto px-3 py-2 md:px-6 md:py-2 md:ml-4 ml-2transition-all duration-300 ${
                     loading
-                      ? "bg-gray-500 text-black cursor-pointer"
-                      : "bg-black text-white hover:text-slate-500 hover:bg-black cursor-pointer"
+                      ? "bg-gray-100 text-black cursor-pointer"
+                      : "bg-black text-white hover:text-slate-400 hover:bg-gray-100 cursor-pointer"
                   }`}
                 >
                   <p className="hidden md:block">
