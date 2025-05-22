@@ -47,9 +47,6 @@ const Hero = () => {
         <h1 className="font-bold text-3xl text-slate-900 text-center">
           Spot AI writing. Catch copied content. Stay confident.
         </h1>
-        {/* <h1 className="font-bold text-3xl text-nowrap text-slate-900">
-         
-        </h1> */}
         <p className=" mt-4 text-md text-center font-quicksand">
           An AI detection and plagarism checker built for accuracy, speed and
           simplicity.
@@ -100,11 +97,10 @@ const Hero = () => {
               }).map((_, i) => (
                 <div
                   key={i}
-                  className={`bg-gray-100 rounded w-full h-5 mt-4 ${
-                    i === Math.max(inputText.split("\n").length, 5) - 1
+                  className={`bg-gray-100 rounded w-full h-5 mt-4 ${i === Math.max(inputText.split("\n").length, 5) - 1
                       ? ""
                       : "mb-1.5"
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -125,61 +121,63 @@ const Hero = () => {
               <div className="hidden md:block  h-6 w-px bg-gray-300"></div>
             </div>
             <div className="flex items-center">
-              <div className="flex gap-5 md:gap-2 items-center ">
-                <button className="flex ">
-                  <img
-                    className="w-5 h-5 md:mr-1 mr-2"
-                    src={coins}
-                    alt="coins"
-                  />
-                  <h2 className="hidden md:block text-sm font-semibold">
-                    2 credits left
-                  </h2>
-                  <h2 className="block md:hidden text-sm font-semibold">2</h2>
-                </button>
+            <div className="flex gap-5 md:gap-2 items-center ">
+              <button className="flex ">
+                <img
+                  className="w-5 h-5 md:mr-1 mr-2"
+                  src={coins}
+                  alt="coins"
+                />
+                <h2 className="hidden md:block text-sm font-semibold">
+                  2 credits left
+                </h2>
+                <h2 className="block md:hidden text-sm font-semibold">2</h2>
+              </button>
 
-                <div className="">
-                  <button className="border-2 border-gray-200 rounded-xl px-4 py-1 text-sm font-semibold font-quicksand cursor-default md:ml-4">
-                    <p className="hidden md:block"> Buy more credits</p>
-                    <p className="block md:hidden">Buy</p>
-                  </button>
-                </div>
-              </div>
-
-            <div className="flex items-center gap-2">
-              <label
-                htmlFor="fileUpload"
-                title="Upload a .txt file"
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                <img className="w-4 h-5" src={arrowup} alt="Upload icon" />
-                <p className="hidden sm:block">Upload</p>
-              </label>
-              <input
-                id="fileUpload"
-                type="file"
-                accept=".txt"
-                onChange={handleFileChange}
-                className="hidden"
-              />
-
-              <button
-                onClick={handleScan}
-                className={`flex md:flex-row flex-col items-center justify-center font-nunito rounded-full md:rounded-md text-sm font-semibold text-center w-9 h-9 md:w-auto md:px-6 md:py-2 transition-all duration-300 ${loading
-                  ? "bg-gray-500 text-black cursor-pointer"
-                  : "bg-black text-white hover:text-slate-500 hover:bg-black cursor-pointer"
-                  }`}
-                >
-                  <p className="hidden md:block">
-                    {loading ? "Scanning" : "Scan Content"}
-                  </p>
-                  <p className="block md:hidden">Scan</p>
+              <div className="">
+                <button className="border-2 border-gray-200 rounded-xl px-4 py-1 text-sm font-semibold font-quicksand cursor-default md:ml-4">
+                  <p className="hidden md:block"> Buy more credits</p>
+                  <p className="block md:hidden">Buy</p>
                 </button>
               </div>
             </div>
+
+            <div className="flex items-center justify-between gap-3 text-center md:ml-28 ml-20">
+              <div className="w-10 md:w-auto">
+                <label
+                  htmlFor="fileUpload"
+                  title="Upload a .txt file"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
+                  <img className="w-4 h-5" src={arrowup} alt="Upload icon" />
+                  <p className="hidden md:block">Upload</p>
+                </label>
+                <input
+                  id="fileUpload"
+                  type="file"
+                  accept=".txt"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+              </div>
+              <button
+                onClick={handleScan}
+                className={`flex flex-row items-center font-quicksand bg-black text-white hover:text-slate-500 hover:bg-black rounded-lg text-sm font-semibold cursor-pointer text-center h-auto w-auto px-3 py-2 md:px-6 md:py-2 md:ml-4 ml-2transition-all duration-300 ${loading
+                    ? "bg-gray-100 text-black cursor-pointer"
+                    : "bg-black text-white hover:text-slate-400 hover:bg-gray-100 cursor-pointer"
+                  }`}
+              >
+                <p className="hidden md:block">
+                  {loading ? "Scanning" : "Scan Content"}
+                </p>
+                <p className="block md:hidden">Scan</p>
+              </button>
+            </div>
           </div>
+
         </div>
       </div>
+    </div >
     </>
   );
 };

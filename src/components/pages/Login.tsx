@@ -71,11 +71,11 @@ const Login = () => {
           <div className="w-full mt-8">
             <img src={Frame} alt="" className="w-full" />
           </div>
-          <div className="flex flex-row justify-between items-center w-full border cursor-pointer p-[10px] border-purple-300 rounded-lg mt-4">
+          <div className="flex flex-row justify-between items-center w-full border cursor-pointer p-[10px] border-gray-200 rounded-lg mt-4">
             <img src={Google} alt="" />
             <FaChevronRight />
           </div>
-          <div className="flex flex-row justify-between items-center w-full p-[10px] border cursor-pointer border-purple-300 rounded-lg mt-4">
+          <div className="flex flex-row justify-between items-center w-full p-[10px] border cursor-pointer border-gray-200 rounded-lg mt-4">
             <img src={Apple} alt="" />
             <FaChevronRight />
           </div>
