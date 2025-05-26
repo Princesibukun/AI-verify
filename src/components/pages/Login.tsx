@@ -5,7 +5,6 @@ import Google from "../../assets/Images/Google.png";
 import Apple from "../../assets/Images/Apple.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
- 
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,16 +20,19 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("https://ai-verify-core.onrender.com/api/auth/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://ai-verify-core.onrender.com/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
       console.log("Login successful:", response.data);
       setShowError(false);
       navigate("/dashboard");
-      } catch (error) {
+    } catch (error) {
       console.error("Login failed:", error);
-      setShowError(true); 
+      setShowError(true);
     }
   };
 
@@ -39,7 +41,10 @@ const Login = () => {
       <div className="bg-white md:w-[600px] w-[343px] max-w-[100%] rounded-lg p-8">
         <div className="flex flex-row justify-between items-center">
           <h1 className="text-2xl font-semibold">Log In</h1>
-          <a href="signup" className="text-[#D63C42] text-sm font-semibold underline">
+          <a
+            href="signup"
+            className="text-[#D63C42] text-sm font-semibold underline"
+          >
             I don't have an account
           </a>
         </div>
@@ -83,7 +88,8 @@ const Login = () => {
           {showError && (
             <div className="bg-red-100 mt-2 mb-4 rounded-2xl p-4">
               <p className="text-red-800">
-                Username or password is incorrect. Please retry with correct details or reset your password.
+                Username or password is incorrect. Please retry with correct
+                details or reset your password.
               </p>
             </div>
           )}
