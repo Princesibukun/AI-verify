@@ -45,7 +45,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className="bg-white flex flex-col items-center font-quicksand md:h-[550px] h-[900px] w-full py-12 overflow-hidden">
+      <div className="bg-white flex flex-col items-center font-quicksand md:h-[550px] h-[900px] w-full py-12 overflow-hidden mt-24">
         <h1 className="font-bold text-3xl text-slate-900 text-center">
           Spot AI writing. Catch copied content. <br /> Stay confident.
         </h1>

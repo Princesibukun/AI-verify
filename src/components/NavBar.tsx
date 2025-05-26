@@ -5,7 +5,7 @@ import verify from "../assets/Images/Verify.png";
 const NavBar = () => {
   return (
     <>
-      <div className="md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-xl w-full bg-white z-10">
+      <div className="fixed top-0 md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-xl w-full bg-white z-10">
         <a
           href="/dashboard"
           className="flex font-outfit text-nowrap items-center"
