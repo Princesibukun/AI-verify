@@ -1,13 +1,13 @@
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Frame from "../../assets/Images/Frame .png";
 import Google from "../../assets/Images/Google.png";
 import Apple from "../../assets/Images/Apple.png";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -17,13 +17,28 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showValidationErrors, setShowValidationErrors] = useState(false);
+
+  const hasNumber = /\d/.test(password);
+  const hasMinLength = password.length >= 12;
+  const hasUpperAndLower = /[a-z]/.test(password) && /[A-Z]/.test(password);
+  const hasSpecialChar = /[!@#$]/.test(password);
+
+  const isPasswordValid =
+    hasNumber && hasMinLength && hasUpperAndLower && hasSpecialChar;
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    setShowValidationErrors(true);
     setError(null);
+
+    if (!isPasswordValid) {
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const response = await axios.post(
@@ -32,7 +47,7 @@ const SignUp = () => {
       );
 
       console.log("Signup successful:", response.data);
-      navigate("/dashboard");
+      navigate("/verify");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.message || "Signup failed. Try again.");
@@ -99,19 +114,41 @@ const SignUp = () => {
               </div>
 
               <div className="mt-4">
-                <div className="flex flex-row items-center mb-2">
+                <div
+                  className={`flex flex-row items-center mb-2 ${
+                    showValidationErrors && !hasNumber ? "text-red-500" : "text-gray-700"
+                  }`}
+                >
                   <FaRegCheckCircle className="mr-2 text-sm" />
                   <p className="text-xs">Numbers</p>
                 </div>
-                <div className="flex flex-row items-center mb-2">
+                <div
+                  className={`flex flex-row items-center mb-2 ${
+                    showValidationErrors && !hasMinLength
+                      ? "text-red-500"
+                      : "text-gray-700"
+                  }`}
+                >
                   <FaRegCheckCircle className="mr-2 text-sm " />
                   <p className="text-xs">Minimum of 12 characters</p>
                 </div>
-                <div className="flex flex-row items-center mb-2">
+                <div
+                  className={`flex flex-row items-center mb-2 ${
+                    showValidationErrors && !hasUpperAndLower
+                      ? "text-red-500"
+                      : "text-gray-700"
+                  }`}
+                >
                   <FaRegCheckCircle className="mr-2 text-sm" />
                   <p className="text-xs">Uppercase and lowercase letter</p>
                 </div>
-                <div className="flex flex-row items-center mb-2">
+                <div
+                  className={`flex flex-row items-center mb-2 ${
+                    showValidationErrors && !hasSpecialChar
+                      ? "text-red-500"
+                      : "text-gray-700"
+                  }`}
+                >
                   <FaRegCheckCircle className="mr-2 text-sm" />
                   <p className="text-xs">Special characters like !, @, #, $</p>
                 </div>
@@ -119,7 +156,6 @@ const SignUp = () => {
             </div>
 
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-
             <button
               type="submit"
               disabled={loading}
