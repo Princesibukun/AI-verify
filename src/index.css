@@ -10,3 +10,9 @@
     --breakpoint-max-sm: 30rem;
     --color-footer: #FEF7FF;
   }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden !important;
+  }

@@ -1,52 +1,71 @@
 // import React from 'react'
 import logo5 from "../assets/Images/logo5.png";
-import { FaFacebook } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
-import { PiInstagramLogoFill } from "react-icons/pi";
-import { FaTelegram } from "react-icons/fa";
-import { AiFillTwitterCircle } from "react-icons/ai";
-import { PiCopyright } from "react-icons/pi";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTelegramPlane,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
     <>
-      <div className="flex flex-col items-center mt-10 bg-white h-[280px]">
-        <div className="relative flex flex-col md:flex-row justify-between bg-[#FFF8F7] p-8 w-[1200px] max-w-[100%] h-[180px] mt-10 rounded-lg">
-          <div className="flex flex-row justify-between">
-            <div className="absolute top-6s left-2 flex font-outfit text-nowrap">
-              <img className="h-5 w-auto bg-[#FFF8F7]" src={logo5} alt="logo" />
-            </div>
-            <div className="absolute md:right-9 right-2 flex justify-between">
-              <a className="mr-4 md:text-lg text-xs" href="#">
-                {" "}
-                Pricing{" "}
-              </a>
-              <a className="mr-4 md:text-lg text-xs" href="#">
-                {" "}
-                Privacy Policy{" "}
-              </a>
-              <a className=" md:text-lg text-xs" href="#">
-                {" "}
-                Terms of Use{" "}
-              </a>
-            </div>
+      <footer className=" bg-white py-10 px-4 w-full h-[190px]">
+        <div className="bg-[#FFF8F7] max-w-6xl h-[200px] mx-auto rounded-xl px-8 py-10 flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
+          <div className="text-center md:text-left max-w-sm">
+            <img src={logo5} alt="" className="h-[30px] w-[196px]" />
+            <p className="text-gray-700 text-sm mt-2 font-quicksand">
+              Lorem ipsum dolor sit amet consectetur.
+              <br />
+              Habitant cursus odio fringilla id tellus faucibus fermentum felis
+              risus.
+            </p>
           </div>
 
-          <div className="absolute md:right-9 right-19 top-20 flex justify-between gap-7">
-            <FaFacebook className="text-3xl text-[#D63C42]" />
-            <PiInstagramLogoFill className="text-3xl text-[#D63C42]" />
-            <FaLinkedin className="text-3xl text-[#D63C42]" />
-            <FaTelegram className="text-3xl text-[#D63C42]" />
-            <AiFillTwitterCircle className="text-3xl text-[#D63C42]" />
+          <div className="flex flex-col md:items-end space-y-4">
+            <div className="flex space-x-6 text-sm font-medium text-[#031B4E]">
+              <a href="#" className="hover:underline">
+                Pricing
+              </a>
+              <a href="#" className="hover:underline">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:underline">
+                Terms of Use
+              </a>
+            </div>
+
+            <div className="flex space-x-4">
+              <div className="bg-[#D63C42] text-white p-2 rounded-full w-[32px] h-[32px]">
+                <FaFacebookF />
+              </div>
+              <div className="bg-[#D63C42] text-white p-2 rounded-full w-[32px] h-[32px]">
+                <FaInstagram />
+              </div>
+              <div className="bg-[#D63C42] text-white p-2 rounded-full w-[32px] h-[32px]">
+                <FaLinkedinIn />
+              </div>
+              <div className="bg-[#D63C42] text-white p-2 rounded-full w-[32px] h-[32px]">
+                <FaTelegramPlane />
+              </div>
+              <div className="bg-[#D63C42] text-white p-2 rounded-full w-[32px] h-[32px]">
+                <FaTwitter />
+              </div>
+            </div>
           </div>
         </div>
-        <div className=" flex flex-col items-center bg-white w-[1200px] max-w-[100%] h-[50px] border-t border-t-slate-300 mt-7">
-          <p className="flex mt-5">
-            <PiCopyright className=" mt-1 mr-1" /> 2025 AI Detector - All Rights
-            Reserved
-          </p>
+
+        <div className="border-t mt-8 pt-4 text-center text-sm text-[#031B4E] flex flex-col items-center space-y-2">
+          <div className="flex items-center space-x-2">
+            <p>
+              {" "}
+              &copy; {new Date().getFullYear()} AI Detector - All Rights
+              Reserved
+            </p>
+          </div>
         </div>
-      </div>
+      </footer>
     </>
   );
 };
