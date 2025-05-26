@@ -2,7 +2,7 @@ import brain2 from "../assets/Images/brain2.png";
 import "../index.css";
 import file from "../assets/Images/file.png";
 import coins from "../assets/Images/coins.png";
-import { FaAngleDown } from "react-icons/fa";
+import { HiChevronDown } from "react-icons/hi";
 import Upload from "../assets/Images/Upload.png";
 import { useState } from "react";
 
@@ -39,53 +39,69 @@ const DashHero = () => {
     }
   };
 
+  const [activeTab, setActiveTab] = useState("ai");
+
   return (
-    <>
-      <div className="flex flex-col  items-center font-quicksand bg-gray-50 md:h-[550px] h-[900px] w-full py-12 overflow-hidden">
-        <div className="flex flex-col md:items-center items-start w-[343px] max-w-[100%]">
-          <h1 className="font-bold text-2xl text-slate-900 text-center">
-            Welcome back, Peter
-          </h1>
+    <div className="flex flex-col font-quicksand bg-white">
+      <div className="flex flex-col items-start w-[343px] max-w-[100%] md:ml-36">
+        <h1 className="font-bold text-2xl text-[#072B43] text-center">
+          Welcome back, Peter
+        </h1>
+        <p className=" mt-4 text-[15px] text-[#072B43] text-center font-[1000] font-quicksand">
+          New Scan
+        </p>
+      </div>
 
-          <p className=" mt-4 text-md text-center font-quicksand">New Scan</p>
-        </div>
-
-        <div className="flex flex-col bg-white rounded-2xl md:w-[800px] w-[343px] max-w-[100%] md:h-[700px] h-[484px] mt-4 p-4 shadow-2xl overflow-hidden">
+      <div className="flex flex-col items-center md:h-[550px] h-[900px] py-24">
+        <div className="flex flex-col bg-white rounded-2xl md:w-[800px] w-[343px] max-w-[100%] md:h-[550px] h-[484px] mt-4 p-4 shadow-xl overflow-hidden">
           <div className="flex flex-col md:flex-row md:justify-between">
-            <div className="flex flex-row items-center">
-              <div className="flex flex-col items-center">
-                <div className="flex items-center gap-2 border-b-2 border-b-[#D63C42] pb-2 px-2">
-                  <img
-                    className="font-semibold text-sm font-quicksand w-6"
-                    src={brain2}
-                    alt=""
-                  />
-                  <h1 className="text-sm font-quicksand">AI Detector</h1>
-                </div>
-              </div>
-              <div className="flex gap-2 items-center ml-10 text-nowrap ">
+            <div className="flex mb-10 space-x-6 text-sm font-medium">
+              <button
+                className={`flex flex-row pb-2 border-b-2 transition-all duration-700 ease-in-out  ${
+                  activeTab === "ai"
+                    ? "border-[#D63C42] text-[#031B4E] font-semibold "
+                    : "border-transparent text-gray-500"
+                }`}
+                onClick={() => setActiveTab("ai")}
+              >
                 <img
-                  className="font-semibold text-sm font-quicksand w-6"
+                  className="font-semibold text-sm font-quicksand h-6 w-6 mr-2"
+                  src={brain2}
+                  alt=""
+                />
+                AI Detector
+              </button>
+              <button
+                className={`flex flex-row pb-2 border-b-2 transition-all duration-700 ease-in-out  ${
+                  activeTab === "plagiarism"
+                    ? "border-[#D63C42] text-[#031B4E] font-semibold "
+                    : "border-transparent text-gray-500"
+                }`}
+                onClick={() => setActiveTab("plagiarism")}
+              >
+                <img
+                  className="font-semibold text-sm font-quicksand h-6 w-6 mr-2"
                   src={file}
                   alt=""
                 />
-                <h1 className="block md:hidden text-sm font-quicksand">
-                  Plagiarism
-                </h1>
-                <h1 className="hidden md:block text-sm font-quicksand">
-                  Plagiarism Checker
-                </h1>
+                Plagiarism Checker
+              </button>
+            </div>
+            <div className="relative w-64">
+              <label className="absolute -top-2 left-3 bg-white px-1 text-xs text-gray-500 z-10 font-quicksand">
+                Analyzing Model
+              </label>
+              <select className="w-full appearance-none border border-gray-300 rounded-md px-3 py-2 text-[#031B4E] font-medium text-sm focus:outline-none font-quicksand">
+                <option>Select </option>
+                <option>Model 1</option>
+                <option>Model 2</option>
+                <option>Model 3</option>
+              </select>
+              {/* Dropdown Arrow */}
+              <div className="pointer-events-none absolute inset-y-0 right-3 -top-8 flex items-center text-[#031B4E]">
+                <HiChevronDown className="w-5 h-5" />
               </div>
             </div>
-            <fieldset className="border border-gray-300 p-1 md:w-[250px] w-full rounded-2xl mt-4">
-              <legend className="text-sm text-gray-600 px-2">
-                Analyzing Model
-              </legend>
-              <div className="flex items-center justify-between w-full mb-2">
-                <span className="ml-2 font-quicksand">Select</span>
-                <FaAngleDown className="text-gray-500 mr-2" />
-              </div>
-            </fieldset>
           </div>
 
           {loading ? (
@@ -113,11 +129,10 @@ const DashHero = () => {
           )}
 
           <div className="flex md:flex-row flex-col text-center mt-6 gap-4 w-full">
-            <div className="flex flex-row gap-4">
-              <p className="font-quicksand text-sm text-slate-400 font-semibold">
+            <div className="flex flex-row gap-4 items-center md:border-r md:p-2 md:h-auto md:border-r-gray-300 text-nowrap">
+              <p className="font-quicksand text-sm text-black font-semibold">
                 Word Count: {charCount}
               </p>
-              <div className="hidden md:block  h-6 w-px bg-gray-300"></div>
             </div>
             <div className="flex items-center">
               <div className="flex gap-5 md:gap-2 items-center ">
@@ -134,14 +149,14 @@ const DashHero = () => {
                 </button>
 
                 <div className="">
-                  <button className="border-2 border-gray-200 rounded-xl px-4 py-1 text-sm font-semibold font-quicksand cursor-default md:ml-4">
+                  <button className="border-2 border-gray-200 rounded-xl px-4 py-1 text-sm font-semibold font-quicksand cursor-pointer md:ml-4">
                     <p className="hidden md:block"> Buy more credits</p>
                     <p className="block md:hidden">Buy</p>
                   </button>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-3 text-center md:ml-28 ml-20">
+              <div className="flex items-center justify-between gap-3 text-center md:ml-24 ml-20">
                 <div className="w-10 md:w-auto">
                   <label
                     htmlFor="fileUpload"
@@ -149,7 +164,7 @@ const DashHero = () => {
                     className="flex items-center gap-2 cursor-pointer"
                   >
                     <img className="w-4 h-5" src={Upload} alt="Upload icon" />
-                    <p className="hidden md:block">Upload</p>
+                    <p className="text-[#D63C42] hidden md:block">Upload</p>
                   </label>
                   <input
                     id="fileUpload"
@@ -177,7 +192,7 @@ const DashHero = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ import brain2 from "../assets/Images/brain2.png";
 import "../index.css";
 import file from "../assets/Images/file.png";
 import coins from "../assets/Images/coins.png";
-import { FaAngleDown } from "react-icons/fa";
+import { HiChevronDown } from "react-icons/hi";
 import arrowup from "../assets/Images/arrowup.png";
 import { useState } from "react";
 
@@ -41,56 +41,68 @@ const Hero = () => {
     }
   };
 
+  const [activeTab, setActiveTab] = useState("ai");
+
   return (
     <>
-      <div className="flex flex-col items-center font-quicksand bg-gray-50 md:h-[550px] h-[900px] w-full py-12 overflow-hidden">
+      <div className="bg-white flex flex-col items-center font-quicksand md:h-[550px] h-[900px] w-full py-12 overflow-hidden mt-24">
         <h1 className="font-bold text-3xl text-slate-900 text-center">
-          Spot AI writing. Catch copied content. Stay confident.
+          Spot AI writing. Catch copied content. <br /> Stay confident.
         </h1>
-        {/* <h1 className="font-bold text-3xl text-nowrap text-slate-900">
-         
-        </h1> */}
         <p className=" mt-4 text-md text-center font-quicksand">
           An AI detection and plagarism checker built for accuracy, speed and
           simplicity.
         </p>
 
-        <div className="flex flex-col bg-white rounded-2xl md:w-[800px] w-[343px] max-w-[100%] md:h-[700px] h-[484px] mt-4 p-4 shadow-2xl overflow-hidden">
+        <div className="flex flex-col bg-white rounded-2xl md:w-[800px] w-[343px] max-w-[100%] md:h-[700px] h-[484px] mt-4 p-4 shadow-xl overflow-hidden">
           <div className="flex flex-col md:flex-row md:justify-between">
-            <div className="flex flex-row items-center">
-              <div className="flex flex-col items-center">
-                <div className="flex items-center gap-2 border-b-2 border-b-[#D63C42] pb-2 px-2">
-                  <img
-                    className="font-semibold text-sm font-quicksand w-6"
-                    src={brain2}
-                    alt=""
-                  />
-                  <h1 className="text-sm font-quicksand">AI Detector</h1>
-                </div>
-              </div>
-              <div className="flex gap-2 items-center ml-10 text-nowrap ">
+            <div className="flex mb-10 space-x-6 text-sm font-medium">
+              <button
+                className={`flex flex-row pb-2 border-b-2 transition-all duration-700 ease-in-out  ${
+                  activeTab === "ai"
+                    ? "border-[#D63C42] text-[#031B4E] font-semibold "
+                    : "border-transparent text-gray-500"
+                }`}
+                onClick={() => setActiveTab("ai")}
+              >
                 <img
-                  className="font-semibold text-sm font-quicksand w-6"
+                  className="font-semibold text-sm font-quicksand h-6 w-6 mr-2"
+                  src={brain2}
+                  alt=""
+                />
+                AI Detector
+              </button>
+              <button
+                className={`flex flex-row pb-2 border-b-2 transition-all duration-700 ease-in-out  ${
+                  activeTab === "plagiarism"
+                    ? "border-[#D63C42] text-[#031B4E] font-semibold "
+                    : "border-transparent text-gray-500"
+                }`}
+                onClick={() => setActiveTab("plagiarism")}
+              >
+                <img
+                  className="font-semibold text-sm font-quicksand h-6 w-6 mr-2"
                   src={file}
                   alt=""
                 />
-                <h1 className="block md:hidden text-sm font-quicksand">
-                  Plagiarism
-                </h1>
-                <h1 className="hidden md:block text-sm font-quicksand">
-                  Plagiarism Checker
-                </h1>
+                Plagiarism Checker
+              </button>
+            </div>
+            <div className="relative w-64">
+              <label className="absolute -top-2 left-3 bg-white px-1 text-xs text-gray-500 z-10 font-quicksand">
+                Analyzing Model
+              </label>
+              <select className="w-full appearance-none border border-gray-300 rounded-md px-3 py-2 text-[#031B4E] font-medium text-sm focus:outline-none font-quicksand">
+                <option>Select </option>
+                <option>Model 1</option>
+                <option>Model 2</option>
+                <option>Model 3</option>
+              </select>
+              {/* Dropdown Arrow */}
+              <div className="pointer-events-none absolute inset-y-0 right-3 -top-8 flex items-center text-[#031B4E]">
+                <HiChevronDown className="w-5 h-5" />
               </div>
             </div>
-            <fieldset className="border border-gray-300 p-1 md:w-[250px] w-full rounded-2xl mt-4">
-              <legend className="text-sm text-gray-600 px-2">
-                Analyzing Model
-              </legend>
-              <div className="flex items-center justify-between w-full mb-2">
-                <span className="ml-2 font-quicksand">Select</span>
-                <FaAngleDown className="text-gray-500 mr-2" />
-              </div>
-            </fieldset>
           </div>
 
           {loading ? (
@@ -110,7 +122,7 @@ const Hero = () => {
             </div>
           ) : (
             <textarea
-              className="mt-2 h-52 w-full p-4 text-sm sm:text-base md:text-lg leading-relaxed outline-none resize-none overflow-auto whitespace-pre-wrap rounded-lg text-black bg-white"
+              className="mt-4 h-56 w-full p-4 text-sm sm:text-base md:text-lg leading-relaxed outline-none resize-none overflow-auto whitespace-pre-wrap rounded-lg text-black bg-white"
               placeholder="Enter text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
@@ -118,11 +130,12 @@ const Hero = () => {
           )}
 
           <div className="flex md:flex-row flex-col text-center mt-6 gap-4 w-full">
-            <div className="flex flex-row items-center gap-4">
+
+            <div className="flex flex-row items-center gap-4 md:p-2 md:border-r md:border-r-gray-300 text-nowrap h-auto ">
+
               <p className="font-quicksand text-sm text-black font-semibold">
                 Word Count: {charCount}
               </p>
-              <div className="hidden md:block  h-6 w-px bg-gray-300"></div>
             </div>
             <div className="flex items-center">
               <div className="flex gap-5 md:gap-2 items-center ">
@@ -168,8 +181,8 @@ const Hero = () => {
                   onClick={handleScan}
                   className={`flex flex-row items-center font-quicksand bg-black text-white hover:text-slate-500 hover:bg-black rounded-lg text-sm font-semibold cursor-pointer text-center h-auto w-auto px-3 py-2 md:px-6 md:py-2 md:ml-4 ml-2transition-all duration-300 ${
                     loading
-                      ? "bg-gray-500 text-black cursor-pointer"
-                      : "bg-black text-white hover:text-slate-500 hover:bg-black cursor-pointer"
+                      ? "bg-gray-100 text-black cursor-pointer"
+                      : "bg-black text-white hover:text-slate-400 hover:bg-gray-100 cursor-pointer"
                   }`}
                 >
                   <p className="hidden md:block">

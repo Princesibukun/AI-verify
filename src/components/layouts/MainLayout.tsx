@@ -6,7 +6,10 @@ const MainLayout = () => {
   return (
     <div>
       <NavBar />
-      <Outlet />
+      <div className="sm:w-full h-full px-4 py-6 overflow-y-auto bg-white">
+        <Outlet />
+      </div>
+
       <Footer />
     </div>
   );
