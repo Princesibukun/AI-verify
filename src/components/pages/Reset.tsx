@@ -20,7 +20,7 @@ const Reset = () => {
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const togglePassVisibility = () => setShowPass(!showPass);
 
-  const validatePassword = (password: string): boolean  => {
+  const validatePassword = (password: string): boolean => {
     const hasNumber = /\d/.test(password);
     const hasUpper = /[A-Z]/.test(password);
     const hasLower = /[a-z]/.test(password);
@@ -29,12 +29,14 @@ const Reset = () => {
     return hasNumber && hasUpper && hasLower && hasSpecial && minLength;
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>)  => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
     if (!validatePassword(newPassword)) {
-      setError("Password must contain numbers, uppercase and lowercase letters, special characters and be at least 12 characters.");
+      setError(
+        "Password must contain numbers, uppercase and lowercase letters, special characters and be at least 12 characters."
+      );
       return;
     }
 
@@ -46,11 +48,14 @@ const Reset = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://ai-verify-core.onrender.com/api/auth/reset-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ newPassword, confirmPassword }),
-      });
+      const response = await fetch(
+        "https://ai-verify-core.onrender.com/api/auth/reset-password",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ newPassword, confirmPassword }),
+        }
+      );
 
       const data = await response.json();
 
@@ -68,10 +73,13 @@ const Reset = () => {
 
   return (
     <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] font-quicksand">
-      <div className="bg-white md:w-[600px] h-fit w-[343px] max-w-[100%] rounded-lg p-8">
+      <div className="bg-white md:w-[600px] h-fit w-[343px] max-w-[100%] rounded-lg p-8 shadow-xl mt-20">
         <div className="flex flex-row justify-between items-center">
           <h1 className="text-2xl font-bold">Reset password</h1>
-          <a href="/login" className="text-[#D63C42] text-sm font-semibold underline">
+          <a
+            href="/login"
+            className="text-[#D63C42] text-sm font-semibold underline"
+          >
             Back to login
           </a>
         </div>
@@ -88,8 +96,15 @@ const Reset = () => {
                 className="h-[44px] w-full outline-0 p-4"
                 required
               />
-              <span onClick={togglePasswordVisibility} className="cursor-pointer">
-                {showPassword ? <FaRegEye className="text-lg mr-2" /> : <FaRegEyeSlash className="text-lg mr-2" />}
+              <span
+                onClick={togglePasswordVisibility}
+                className="cursor-pointer"
+              >
+                {showPassword ? (
+                  <FaRegEye className="text-lg mr-2" />
+                ) : (
+                  <FaRegEyeSlash className="text-lg mr-2" />
+                )}
               </span>
             </div>
           </div>
@@ -106,7 +121,11 @@ const Reset = () => {
                 required
               />
               <span onClick={togglePassVisibility} className="cursor-pointer">
-                {showPass ? <FaRegEye className="text-lg mr-2" /> : <FaRegEyeSlash className="text-lg mr-2" />}
+                {showPass ? (
+                  <FaRegEye className="text-lg mr-2" />
+                ) : (
+                  <FaRegEyeSlash className="text-lg mr-2" />
+                )}
               </span>
             </div>
           </div>

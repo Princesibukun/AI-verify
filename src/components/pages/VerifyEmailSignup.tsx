@@ -31,7 +31,10 @@ const VerifyEmail = () => {
         setIsOtpValid(true);
       } catch (error: unknown) {
         if (axios.isAxiosError(error)) {
-          console.log("OTP verification failed:", error.response?.data?.message || error.message);
+          console.log(
+            "OTP verification failed:",
+            error.response?.data?.message || error.message
+          );
         } else {
           console.log("An unexpected error occurred.");
         }
@@ -47,7 +50,7 @@ const VerifyEmail = () => {
   return (
     <div>
       <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] font-quicksand">
-        <div className="bg-white md:w-[600px] w-[343px] h-fit max-w-[100%] rounded-lg p-8">
+        <div className="bg-white md:w-[600px] w-[343px] h-fit max-w-[100%] rounded-lg p-8 shadow-xl">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl font-bold">Verify email</h1>
             <a
@@ -60,7 +63,10 @@ const VerifyEmail = () => {
           <p className="mt-4">
             Enter the verification code sent to{" "}
             <span className="font-bold">useremail@gmail.com.</span>
-            <span className="font-semibold"> This code expires in 15 minutes</span>
+            <span className="font-semibold">
+              {" "}
+              This code expires in 15 minutes
+            </span>
           </p>
           <div className="mt-10">
             <p className="text-sm text-gray-500">Verification code</p>
@@ -76,8 +82,9 @@ const VerifyEmail = () => {
 
           <p
             onClick={() => isOtpValid && navigate("/login")}
-            className={`w-full flex flex-col items-center text-center py-[10px] px-[24px] font-semibold mt-10 ${isOtpValid ? "text-red-500 cursor-pointer" : "text-gray-400"
-              }`}
+            className={`w-full flex flex-col items-center text-center py-[10px] px-[24px] font-semibold mt-10 ${
+              isOtpValid ? "text-red-500 cursor-pointer" : "text-gray-400"
+            }`}
           >
             {isOtpValid ? "Resend code" : ` {countdown}`}
           </p>
