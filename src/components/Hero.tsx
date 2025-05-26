@@ -130,7 +130,9 @@ const Hero = () => {
           )}
 
           <div className="flex md:flex-row flex-col text-center mt-6 gap-4 w-full">
+
             <div className="flex flex-row items-center gap-4 md:p-2 md:border-r md:border-r-gray-300 text-nowrap h-auto ">
+
               <p className="font-quicksand text-sm text-black font-semibold">
                 Word Count: {charCount}
               </p>

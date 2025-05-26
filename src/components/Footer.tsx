@@ -27,6 +27,7 @@ const Footer = () => {
             <div className="flex space-x-6 text-sm font-medium text-[#031B4E]">
               <a href="#" className="hover:underline">
                 Pricing
+
               </a>
               <a href="#" className="hover:underline">
                 Privacy Policy
