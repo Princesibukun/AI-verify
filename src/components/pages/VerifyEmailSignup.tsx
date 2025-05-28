@@ -86,7 +86,7 @@ const VerifyEmail = () => {
               isOtpValid ? "text-red-500 cursor-pointer" : "text-gray-400"
             }`}
           >
-            {isOtpValid ? "Resend code" : ` {countdown}`}
+            {isOtpValid ? "Resend code" : `Resend code in ${countdown}s`}
           </p>
 
           <div className="w-full mt-8">

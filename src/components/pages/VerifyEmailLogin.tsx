@@ -5,15 +5,20 @@ import Apple from "../../assets/Images/Apple.png";
 import { FaChevronRight } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const VerifyEmailLogin = () => {
   const [countdown, setCountdown] = useState(46);
   const [otp, setOtp] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+
   const navigate = useNavigate();
 
   useEffect(() => {
     if (countdown === 0) {
-      navigate("/resetpass");
+      navigate("/signup");
       return;
     }
 
@@ -36,6 +41,29 @@ const VerifyEmailLogin = () => {
       setOtp(value);
     }
   };
+  const handleResendCode = async () => {
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await axios.post(
+        "https://ai-verify-core.onrender.com/api/auth/resend-code?type=signup"
+      );
+      console.log(response.data);
+
+      setMessage("Verification code resent successfully.");
+      setCountdown(45); 
+    } catch (error: unknown) {
+  if (axios.isAxiosError(error)) {
+    setMessage(error.response?.data?.message || "Failed to resend code.");
+  } else if (error instanceof Error) {
+    setMessage(error.message);
+  } else {
+    setMessage("Something went wrong. Please try again.");
+  }
+}
+  };
+
 
   return (
     <div>
@@ -71,14 +99,22 @@ const VerifyEmailLogin = () => {
             />
           </div>
 
-          <p
-            className="w-full flex flex-col
-                     items-center text-center
-                     py-[10px] px-[24px]
-                     font-semibold mt-10 text-gray-400"
-          >
-            Resend code in {countdown}s
-          </p>
+          <div className="w-full flex flex-col items-center text-center py-[10px] px-[24px] font-semibold mt-10 text-gray-400">
+            {otp.length === 6 ? (
+              <span
+                onClick={loading ? undefined : handleResendCode}
+                className={loading ? "cursor-not-allowed text-gray-400" : "text-[#D63C42] cursor-pointer"}
+              >
+              </span>
+            ) : (
+              <p>Resend code in {countdown}s</p>
+            )}
+            {message && (
+              <p className="text-sm mt-2 text-green-600">{message}</p>
+            )}
+          </div>
+
+
           <div className="w-full mt-8">
             <img src={Frame} alt="" className="w-full" />
           </div>

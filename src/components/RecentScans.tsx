@@ -86,6 +86,7 @@ const RecentScans = () => {
 
           <div className="flex flex-wrap gap-4 mb-4">
             <select
+            aria-label="Content type" 
               className="border-2 border-gray-200 text-sm text-gray-700 rounded-md px-3 py-2 font-quicksand focus:outline-none focus:ring-2 focus:ring-blue-500"
               defaultValue=""
             >
@@ -97,10 +98,10 @@ const RecentScans = () => {
               <option value="document">Document</option>
             </select>
 
-            <select className="border-2 border-gray-200 text-sm text-gray-700 rounded-md px-3 py-2 font-quicksand">
+            <select  aria-label="Date from" className="border-2 border-gray-200 text-sm text-gray-700 rounded-md px-3 py-2 font-quicksand">
               <option>Date from</option>
             </select>
-            <select className="border-2 border-gray-200 text-sm text-gray-700 rounded-md px-3 py-2 font-quicksand">
+            <select aria-label="Date to" className="border-2 border-gray-200 text-sm text-gray-700 rounded-md px-3 py-2 font-quicksand">
               <option>Date to</option>
             </select>
           </div>
