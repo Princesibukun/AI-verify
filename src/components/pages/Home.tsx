@@ -6,7 +6,7 @@ import FAQ from "../FAQ";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-gray-50">
       <Hero />
       <HowItWorks />
       <KeyFeatures />

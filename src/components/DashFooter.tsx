@@ -10,7 +10,7 @@ import logo5 from "../assets/Images/logo5.png";
 
 const DashFooter = () => {
   return (
-    <footer className="bg-transparent py-10 px-4 w-full">
+    <footer className="bg-white py-10 px-4 w-full">
       <div className="bg-[#FFF8F7] max-w-6xl mx-auto rounded-xl px-8 py-10 flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
         <div className="text-center md:text-left max-w-sm">
           <img src={logo5} alt="" className="h-[30px] w-[196px]" />
