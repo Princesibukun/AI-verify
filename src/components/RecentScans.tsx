@@ -85,11 +85,18 @@ const RecentScans = () => {
           </div>
 
           <div className="flex flex-wrap gap-4 mb-4">
-            <select className="border-2 border-gray-200 text-sm text-gray-700 rounded-md px-3 py-2 font-quicksand">
-              <option>Content type</option>
-              <option>Text</option>
-              <option>Document</option>
+            <select
+              className="border-2 border-gray-200 text-sm text-gray-700 rounded-md px-3 py-2 font-quicksand focus:outline-none focus:ring-2 focus:ring-blue-500"
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Content type
+              </option>
+              <option value="all">All</option>
+              <option value="text">Text</option>
+              <option value="document">Document</option>
             </select>
+
             <select className="border-2 border-gray-200 text-sm text-gray-700 rounded-md px-3 py-2 font-quicksand">
               <option>Date from</option>
             </select>
