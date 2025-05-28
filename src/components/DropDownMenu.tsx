@@ -59,7 +59,7 @@ const DropdownMenu: React.FC = () => {
             <GrHistory className="mr-2 w-[18px] h-[18px]" /> <p>History</p>
           </a>
           <a
-            href="#credits"
+            href="/dashboard/credit"
             className="flex items-center active:text-[#D63C42] p-2 rounded"
           >
             <img className="mr-2 h-[19px] w-[19px]" src={Logo} alt="logo" />
