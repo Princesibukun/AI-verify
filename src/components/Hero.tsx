@@ -6,6 +6,7 @@ import file from "../assets/Images/file.png";
 import coins from "../assets/Images/coins.png";
 import { HiChevronDown } from "react-icons/hi";
 import arrowup from "../assets/Images/arrowup.png";
+import herobg from "../assets/Images/heroBg.jpeg";
 import { useState } from "react";
 
 const Hero = () => {
@@ -45,7 +46,10 @@ const Hero = () => {
 
   return (
     <>
-      <div className="bg-white flex flex-col items-center font-quicksand md:h-[550px] h-[900px] w-full py-12 overflow-hidden mt-24">
+      <div
+        className="flex flex-col items-center font-quicksand md:h-[550px] h-[900px] w-full py-12 overflow-hidden mt-24"
+        style={{ backgroundImage: `url(${herobg})` }}
+      >
         <h1 className="font-bold text-3xl text-slate-900 text-center">
           Spot AI writing. Catch copied content. <br /> Stay confident.
         </h1>
@@ -130,9 +134,7 @@ const Hero = () => {
           )}
 
           <div className="flex md:flex-row flex-col text-center mt-6 gap-4 w-full">
-
             <div className="flex flex-row items-center gap-4 md:p-2 md:border-r md:border-r-gray-300 text-nowrap h-auto ">
-
               <p className="font-quicksand text-sm text-black font-semibold">
                 Word Count: {charCount}
               </p>
