@@ -13,7 +13,10 @@ const SideBar = () => {
         <a href="#history" className="active:text-[#D63C42] p-2 rounded">
           History
         </a>
-        <a href="#credits" className="active:text-[#D63C42] p-2 rounded">
+        <a
+          href="/dashboard/credit"
+          className="active:text-[#D63C42] p-2 rounded"
+        >
           Credits
         </a>
         <a href="#profile" className="active:text-[#D63C42] p-2 rounded">

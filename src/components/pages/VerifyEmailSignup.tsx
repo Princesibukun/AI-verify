@@ -18,7 +18,7 @@ const VerifyEmail = () => {
       setCountdown((prev) => prev - 1);
     }, 1000);
     return () => clearInterval(timer);
-  }, [countdown]);
+  }, [countdown, navigate]);
 
   useEffect(() => {
     const verifyOtp = async () => {
