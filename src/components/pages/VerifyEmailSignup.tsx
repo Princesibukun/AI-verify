@@ -5,12 +5,16 @@ import Apple from "../../assets/Images/Apple.png";
 import { FaChevronRight } from "react-icons/fa6";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/Store";
 
 const VerifyEmail = () => {
   const [countdown, setCountdown] = useState(46);
   const [otp, setOtp] = useState("");
   const [isOtpValid, setIsOtpValid] = useState(false);
+
   const navigate = useNavigate();
+  const userEmail = useSelector((state: RootState) => state.auth.email);
 
   useEffect(() => {
     if (countdown === 0) return;
@@ -54,7 +58,7 @@ const VerifyEmail = () => {
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl font-bold">Verify email</h1>
             <a
-              href="/signup"
+              href="/login"
               className="text-[#D63C42] text-sm font-semibold underline"
             >
               Back to signup
@@ -62,11 +66,8 @@ const VerifyEmail = () => {
           </div>
           <p className="mt-4">
             Enter the verification code sent to{" "}
-            <span className="font-bold">useremail@gmail.com.</span>
-            <span className="font-semibold">
-              {" "}
-              This code expires in 15 minutes
-            </span>
+            <span className="font-bold">{userEmail}</span>.
+            <span className="font-semibold"> This code expires in 15 minutes</span>
           </p>
           <div className="mt-10">
             <p className="text-sm text-gray-500">Verification code</p>
@@ -81,12 +82,13 @@ const VerifyEmail = () => {
           </div>
 
           <p
-            onClick={() => isOtpValid && navigate("/login")}
-            className={`w-full flex flex-col items-center text-center py-[10px] px-[24px] font-semibold mt-10 ${
-              isOtpValid ? "text-red-500 cursor-pointer" : "text-gray-400"
-            }`}
+            onClick={() => {
+              if (isOtpValid) navigate("/login");
+            }}
+            className={`w-full flex flex-col items-center text-center py-[10px] px-[24px] font-semibold mt-10 ${isOtpValid ? "text-red-500 cursor-pointer" : "text-gray-400"
+              }`}
           >
-            {isOtpValid ? "Resend code" : ` {countdown}`}
+            {isOtpValid ? "Resend code" : `${countdown}s`}
           </p>
 
           <div className="w-full mt-8">

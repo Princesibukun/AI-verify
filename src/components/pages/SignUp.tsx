@@ -8,8 +8,11 @@ import Apple from "../../assets/Images/Apple.png";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setEmail as setEmailRedux } from "../../redux/AuthSlice";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -45,6 +48,8 @@ const SignUp = () => {
         "https://ai-verify-core.onrender.com/api/auth/init-signup",
         { email, password }
       );
+        dispatch(setEmailRedux(email));
+
 
       console.log("Signup successful:", response.data);
       navigate("/verify");

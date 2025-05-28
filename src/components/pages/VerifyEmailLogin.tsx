@@ -14,7 +14,7 @@ const VerifyEmailLogin = () => {
 
   useEffect(() => {
     if (countdown === 0) {
-      navigate("/login");
+      navigate("/signup");
       return;
     }
 
@@ -37,7 +37,7 @@ const VerifyEmailLogin = () => {
   const verifyOtp = useCallback(async (otpCode: string) => {
     setError(null);
     try {
-      const response = await fetch("https://ai-verify-core.onrender.com/api/auth/verify-otp", {
+      const response = await fetch("https://ai-verify-core.onrender.com/api/auth/resend-code?type=signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const VerifyEmailLogin = () => {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        navigate("/login");
+        navigate("/signup");
       } else {
         setError(data.message || "Invalid OTP. Please try again.");
       }
