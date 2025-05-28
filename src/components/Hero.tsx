@@ -89,10 +89,10 @@ const Hero = () => {
               </button>
             </div>
             <div className="relative w-64">
-              <label className="absolute -top-2 left-3 bg-white px-1 text-xs text-gray-500 z-10 font-quicksand">
+              <label htmlFor="modelSelect" className="absolute -top-2 left-3 bg-white px-1 text-xs text-gray-500 z-10 font-quicksand">
                 Analyzing Model
               </label>
-              <select className="w-full appearance-none border border-gray-300 rounded-md px-3 py-2 text-[#031B4E] font-medium text-sm focus:outline-none font-quicksand">
+              <select id="modelSelect" className="w-full appearance-none border border-gray-300 rounded-md px-3 py-2 text-[#031B4E] font-medium text-sm focus:outline-none font-quicksand">
                 <option>Select </option>
                 <option>Model 1</option>
                 <option>Model 2</option>
