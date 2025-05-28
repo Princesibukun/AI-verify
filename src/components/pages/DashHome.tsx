@@ -1,9 +1,11 @@
 import DashHero from "../DashHero";
+import RecentScans from "../RecentScans";
 
 const DashHome = () => {
   return (
-    <div>
+    <div className="">
       <DashHero />
+      <RecentScans />
     </div>
   );
 };

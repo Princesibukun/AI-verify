@@ -12,7 +12,7 @@ const KeyFeatures = () => {
           Key Features
         </div>
         <h1 className="font-semibold text-4xl mt-2 text-center">
-          What You Get Using AI Detector Tool
+          What You Get Using AI Verify
         </h1>
         <div className="flex md:flex-row flex-col items-center justify-between mt-10 w-full gap-5">
           <div className="bg-white h-[224px] w-[300px] max-w-[100%] rounded-lg border border-purple-200 p-4 flex flex-col items-center">

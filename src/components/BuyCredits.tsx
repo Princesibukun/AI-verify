@@ -1,5 +1,5 @@
 import { useState } from "react";
-import coin from "../../assets/Images/coins.png";
+import coin from "../assets/Images/coins.png";
 
 const plans = [
   {
@@ -35,14 +35,10 @@ export default function CreditPricing() {
 
   return (
     <div className="py-12 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-12 mt-20">
-        <h2 className="text-3xl font-extrabold text-[#072B43] font-nunito">
-          Flexible Credit Packs to Match Your <br /> Needs
+      <div className="mb-8 mt-20">
+        <h2 className="text-xl font-semibold text-[#072B43] font-nunito">
+          Buy Credits
         </h2>
-        <p className="text-[#072B43] text-xs font-quicksand mt-2 ">
-          Pick the plan that gives you the right amount of credits. Pay only for
-          what you use.
-        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -88,6 +84,7 @@ export default function CreditPricing() {
           </div>
         ))}
 
+        {/* Custom Plan */}
         <div className="rounded-xl border border-[#FFEDEA] p-6 shadow-sm flex flex-col justify-between text-[#072B43]">
           <div>
             <div className="flex items-center gap-2 mb-2">

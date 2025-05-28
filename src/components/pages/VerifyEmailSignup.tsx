@@ -5,12 +5,16 @@ import Apple from "../../assets/Images/Apple.png";
 import { FaChevronRight } from "react-icons/fa6";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/Store";
 
 const VerifyEmail = () => {
   const [countdown, setCountdown] = useState(46);
   const [otp, setOtp] = useState("");
   const [isOtpValid, setIsOtpValid] = useState(false);
+
   const navigate = useNavigate();
+  const userEmail = useSelector((state: RootState) => state.auth.email);
 
   useEffect(() => {
     if (countdown === 0) return;
@@ -18,7 +22,7 @@ const VerifyEmail = () => {
       setCountdown((prev) => prev - 1);
     }, 1000);
     return () => clearInterval(timer);
-  }, [countdown]);
+  }, [countdown, navigate]);
 
   useEffect(() => {
     const verifyOtp = async () => {
@@ -31,7 +35,10 @@ const VerifyEmail = () => {
         setIsOtpValid(true);
       } catch (error: unknown) {
         if (axios.isAxiosError(error)) {
-          console.log("OTP verification failed:", error.response?.data?.message || error.message);
+          console.log(
+            "OTP verification failed:",
+            error.response?.data?.message || error.message
+          );
         } else {
           console.log("An unexpected error occurred.");
         }
@@ -47,11 +54,11 @@ const VerifyEmail = () => {
   return (
     <div>
       <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] font-quicksand">
-        <div className="bg-white md:w-[600px] w-[343px] h-fit max-w-[100%] rounded-lg p-8">
+        <div className="bg-white md:w-[600px] w-[343px] h-fit max-w-[100%] rounded-lg p-8 shadow-xl">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl font-bold">Verify email</h1>
             <a
-              href="/signup"
+              href="/login"
               className="text-[#D63C42] text-sm font-semibold underline"
             >
               Back to signup
@@ -59,7 +66,7 @@ const VerifyEmail = () => {
           </div>
           <p className="mt-4">
             Enter the verification code sent to{" "}
-            <span className="font-bold">useremail@gmail.com.</span>
+            <span className="font-bold">{userEmail}</span>.
             <span className="font-semibold"> This code expires in 15 minutes</span>
           </p>
           <div className="mt-10">
@@ -75,11 +82,13 @@ const VerifyEmail = () => {
           </div>
 
           <p
-            onClick={() => isOtpValid && navigate("/login")}
+            onClick={() => {
+              if (isOtpValid) navigate("/login");
+            }}
             className={`w-full flex flex-col items-center text-center py-[10px] px-[24px] font-semibold mt-10 ${isOtpValid ? "text-red-500 cursor-pointer" : "text-gray-400"
               }`}
           >
-            {isOtpValid ? "Resend code" : ` {countdown}`}
+            {isOtpValid ? "Resend code" : `${countdown}s`}
           </p>
 
           <div className="w-full mt-8">

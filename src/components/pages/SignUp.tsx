@@ -8,8 +8,11 @@ import Apple from "../../assets/Images/Apple.png";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setEmail as setEmailRedux } from "../../redux/AuthSlice";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -45,6 +48,8 @@ const SignUp = () => {
         "https://ai-verify-core.onrender.com/api/auth/init-signup",
         { email, password }
       );
+        dispatch(setEmailRedux(email));
+
 
       console.log("Signup successful:", response.data);
       navigate("/verify");
@@ -62,7 +67,7 @@ const SignUp = () => {
   return (
     <div>
       <div className="flex flex-col items-center m-auto mt-10 h-fit container max-w-[800px] font-quicksand">
-        <div className="bg-white md:w-[600px] w-[343px] max-w-[100%] rounded-lg p-8">
+        <div className="bg-white md:w-[600px] w-[343px] max-w-[100%] rounded-lg p-8 shadow-xl">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl font-semibold">Sign up</h1>
             <a
@@ -104,7 +109,10 @@ const SignUp = () => {
                   aria-label="Password"
                   className="h-[44px] w-full outline-0 p-4"
                 />
-                <span onClick={togglePasswordVisibility} className="cursor-pointer">
+                <span
+                  onClick={togglePasswordVisibility}
+                  className="cursor-pointer"
+                >
                   {!showPassword ? (
                     <FaRegEyeSlash className="text-lg mr-2" />
                   ) : (
@@ -116,7 +124,9 @@ const SignUp = () => {
               <div className="mt-4">
                 <div
                   className={`flex flex-row items-center mb-2 ${
-                    showValidationErrors && !hasNumber ? "text-red-500" : "text-gray-700"
+                    showValidationErrors && !hasNumber
+                      ? "text-red-500"
+                      : "text-gray-700"
                   }`}
                 >
                   <FaRegCheckCircle className="mr-2 text-sm" />

@@ -1,18 +1,18 @@
 import Logo from "../assets/Images/Logo.png";
 import menu from "../assets/Images/Menu.png";
-import logo4 from "../assets/Images/logo4.png";
+import verify from "../assets/Images/Verify.png";
 
 const NavBar = () => {
   return (
     <>
-      <div className="md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-4xl w-full bg-white z-10">
+      <div className="fixed top-0 md:px-10 px-4 py-4 flex flex-wrap items-center justify-between shadow-xl w-full bg-white z-10">
         <a
           href="/dashboard"
           className="flex font-outfit text-nowrap items-center"
         >
           <img
-            className="md:text-2xl text-sm md:w-full w-[129.2941131591797px] md:h-10 h-[28px] md:ml-2 ml-1"
-            src={logo4}
+            className="md:text-2xl text-sm md:w-[200px] w-[129.2941131591797px] md:h-[40px] h-[28px] md:ml-2 ml-1"
+            src={verify}
             alt="Logo"
           />
         </a>
