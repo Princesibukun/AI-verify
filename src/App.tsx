@@ -15,6 +15,7 @@ import Reset from "./components/pages/Reset";
 import ViewPrice from "./components/pages/ViewPrice";
 import DashHome from "./components/pages/DashHome";
 import Credit from "./components/pages/Credit";
+import UserProfile from "./components/pages/UserProfile";
 function App() {
   return (
     <Routes>
@@ -34,6 +35,7 @@ function App() {
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<DashHome />} />
         <Route path="/dashboard/credit" element={<Credit />} />
+        <Route path="/dashboard/profile" element={<UserProfile />} />
       </Route>
     </Routes>
   );

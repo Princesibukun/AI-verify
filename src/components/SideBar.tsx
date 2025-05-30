@@ -19,7 +19,7 @@ const SideBar = () => {
         >
           Credits
         </a>
-        <a href="#profile" className="active:text-[#D63C42] p-2 rounded">
+        <a href="/dashboard/profile" className="active:text-[#D63C42] p-2 rounded">
           Profile
         </a>
       </nav>
